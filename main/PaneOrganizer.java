@@ -1,3 +1,4 @@
+package main;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -25,6 +26,8 @@ public class PaneOrganizer {
 
         this.root.setCenter(this.gamePane);
         this.root.setLeft(this.infoPane);
+
+        new Chess(this.gamePane);
     }
 
     public BorderPane getRoot() {
