@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
- * It's time for Tetris! This is the  main class to get things started.
+ * It's time for Chess! This is the  main class to get things started.
  *
  * The main method of this application calls the start method. You
  * will need to fill in the start method to instantiate your game.
