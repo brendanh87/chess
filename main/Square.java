@@ -15,9 +15,9 @@ public class Square {
     private Rectangle square;
     private Piece piece;
 
-    public Square(Pane gamePane, double x, double y, boolean isGreen) {
+    public Square(Pane gamePane, int x, int y, boolean isGreen) {
         // create the square based on the passed in information
-        this.square = new Rectangle(x, y, Constants.SQUARE_SIZE, Constants.SQUARE_SIZE);
+        this.square = new Rectangle(x * Constants.SQUARE_SIZE, y * Constants.SQUARE_SIZE, Constants.SQUARE_SIZE, Constants.SQUARE_SIZE);
         if (isGreen) {
             this.square.setFill(Color.GREEN);
         } else {

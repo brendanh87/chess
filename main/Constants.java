@@ -9,6 +9,8 @@ public class Constants {
 
     public static final double SQUARE_SIZE = 81.25;
 
+    public static final double PIECE_OFFSET = 9;
+
     public static final int BOARD_SIZE = 8;
 
     public static final String GAME_COLOR = "-fx-background-color: #008000";
