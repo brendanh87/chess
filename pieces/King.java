@@ -1,34 +1,69 @@
 package pieces;
 
+import java.util.ArrayList;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import main.Constants;
+import main.Square;
 
 public class King implements Piece{
 
-    private Image king;
+    private ImageView king;
     private Pane gamePane;
+    private int x;
+    private int y;
+    private boolean isBlack;
 
     public King(Pane gamePane, int x, int y, boolean isBlack) {
         this.gamePane = gamePane;
-
+        this.isBlack = isBlack;
+        this.x = x;
+        this.y = y;
+        Image image;
         if (isBlack) {
-            this.king = new Image("pics/Chess_kdt60.png");
+            image = new Image("pics/Chess_kdt60.png");
         } else {
-            this.king = new Image("pics/Chess_klt60.png");
+            image = new Image("pics/Chess_klt60.png");
         }
-        ImageView imageView = new ImageView(this.king);
+        this.king = new ImageView(image);
 
-        imageView.setX(x * Constants.SQUARE_SIZE + Constants.PIECE_OFFSET);
-        imageView.setY(y * Constants.SQUARE_SIZE + Constants.PIECE_OFFSET);
+        this.king.setX(x * Constants.SQUARE_SIZE + Constants.PIECE_OFFSET);
+        this.king.setY(y * Constants.SQUARE_SIZE + Constants.PIECE_OFFSET);
 
-        this.gamePane.getChildren().add(imageView);
+        this.gamePane.getChildren().add(this.king);
     }
 
     @Override
-    public void move() {
+    public ArrayList<Square> move(Square[][] board) {
+        ArrayList<Square> possible = new ArrayList<>();
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[0].length; j++) {
+                if ((Math.abs(i - this.x) == 1 || Math.abs(j - this.y) == 1) && board[i][j].getPiece() == null) {
+                    possible.add(board[i][j]);
+                    board[i][j].setStrokeColor(Color.HOTPINK);
+                    board[i][j].setStrokeWidth(5);
+                }
+            }
+        }
+        return possible;
+    }
 
+    @Override
+    public void addToPane() {
+        this.gamePane.getChildren().add(this.king);
+    }
+
+    @Override
+    public void removeFromPane() {
+        this.gamePane.getChildren().remove(this.king);
+    }
+
+    @Override
+    public boolean getIsBlack() {
+        return this.isBlack;
     }
     
 }

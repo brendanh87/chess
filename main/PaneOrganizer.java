@@ -3,9 +3,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 
-/* 
-This class organizes the panes, the visual space our game elements will live on.
-*/
+/**
+ * This class organizes the panes and visual aspects of the game.
+ */
 
 public class PaneOrganizer {
     

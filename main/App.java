@@ -19,6 +19,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         // Create top-level object, set up the scene, and show the stage here.
+        System.out.println("cool");
         PaneOrganizer organizer = new PaneOrganizer();
         Scene scene = new Scene(organizer.getRoot(), Constants.STAGE_WIDTH, Constants.STAGE_HEIGHT);
         stage.setScene(scene);
